@@ -1,0 +1,51 @@
+.home {
+    padding: 0rem 2rem;
+}
+
+.home .header {
+    display: flex;
+    align-items: baseline;
+
+    border-bottom: 1px solid rgb(51, 51, 51, 0.4);
+}
+
+.home .header p {
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+    padding: 0rem 1.8rem;
+    margin: 1rem 0rem;
+}
+
+.home .header .title {
+    border-right: 1px solid rgb(51, 51, 51, 0.4);
+    font-size: 1.9rem;
+    font-weight: bold;
+
+    background-image: linear-gradient(45deg, #ffc000, #ffd700);
+    background-clip: text;
+    color: transparent;
+}
+
+.home .header .greeting {
+    color: rgb(51, 51, 51, 0.4);
+    font-size: 1rem;
+}
+
+.home .side ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    min-width: 10rem;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.home .side ul li {
+    font-size: large;
+    font-family: "Ubuntu", sans-serif;
+
+    padding: 1rem 0rem;
+}
