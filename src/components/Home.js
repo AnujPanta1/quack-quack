@@ -1,36 +1,35 @@
-import { useState } from "react";
-import { Routes, useLocation, Link, Route, Outlet } from "react-router-dom";
+import { Link, parsePath, useParams } from "react-router-dom";
 import "./Home.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
-    const location = useLocation();
-    console.log(location);
-    console.log(location.state);
-
-    const data = useState(location.state);
+    const [user, setUser] = useState({});
+    const params = useParams();
+    useEffect(() => {
+        axios
+            .get("http://localhost:8000/api/auth/userData/", {
+                header: {
+                    "auth-token": params.token,
+                },
+            })
+            .then((res) => {
+                setUser(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }, []);
 
     return (
         <div className="home">
             <div className="header">
-                <p className="title">Quack Quack</p>
-                <p className="greeting">Welcome back</p>
-                <p className="greeting">Your email is</p>
-            </div>
-            <div className="side">
-                <ul>
-                    <Link to="">
-                        <li>Home</li>
-                    </Link>
-                    <Link to="ownedTeams">
-                        <li>Owned Teams</li>
-                    </Link>
-                    <Link to="workingTeams">
-                        <li>Current Teams</li>
-                    </Link>
-                </ul>
+                <Link to="/">
+                    <p className="title">Quack Quack</p>
+                </Link>
             </div>
             <div className="main">
-                <Outlet />
+                <h1>Hello {user.name}</h1>
             </div>
         </div>
     );

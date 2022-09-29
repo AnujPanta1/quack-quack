@@ -25,6 +25,8 @@
             rgba(244, 187, 68, 0.8),
             rgba(250, 218, 94, 0) 70.71%
         );
+
+    overflow-y: scroll;
 }
 
 .intro .title {

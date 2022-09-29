@@ -15,9 +15,6 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const registerUser = () => {
-        setEmail("");
-        setName("");
-        setPassword("");
         let payload = {
             email: email,
             name: name,
@@ -27,11 +24,27 @@ const Signup = () => {
         axios
             .post("http://localhost:8000/api/auth/register", payload)
             .then((res) => {
-                navigate("/home", {
-                    state: {
-                        user: res.data,
-                    },
-                });
+                loginUser();
+            })
+            .catch((err) => {
+                setAuthFail(true);
+            });
+    };
+
+    const loginUser = () => {
+        setName("");
+        setEmail("");
+        setPassword("");
+
+        let payload = {
+            email: email,
+            password: password,
+        };
+
+        axios
+            .post("http://localhost:8000/api/auth/login", payload)
+            .then((res) => {
+                navigate(`/user/${res.headers["auth-token"]}`);
             })
             .catch((err) => {
                 setAuthFail(true);

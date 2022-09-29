@@ -26,12 +26,7 @@ const Login = () => {
         axios
             .post("http://localhost:8000/api/auth/login", payload)
             .then((res) => {
-                navigate("/home", {
-                    state: {
-                        user: res.data,
-                        token: res.headers["auth-token"],
-                    },
-                });
+                navigate(`/user/${res.headers["auth-token"]}`);
             })
             .catch((err) => {
                 setAuthFail(true);

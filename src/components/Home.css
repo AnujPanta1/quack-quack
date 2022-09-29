@@ -31,6 +31,17 @@
     font-size: 1rem;
 }
 
+.home .wrapper {
+    display: flex;
+    outline: 1px solid rgba(0, 0, 255, 0.319);
+    width: auto;
+}
+
+.home .side {
+    outline: 1px solid rgba(0, 128, 0, 0.39);
+    width: fit-content;
+}
+
 .home .side ul {
     display: flex;
     flex-direction: column;
@@ -48,4 +59,8 @@
     font-family: "Ubuntu", sans-serif;
 
     padding: 1rem 0rem;
+}
+
+.home .main {
+    flex-grow: 1;
 }

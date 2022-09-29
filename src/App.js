@@ -12,17 +12,7 @@ function App() {
                 <Route path="/" element={<Intro></Intro>}></Route>
                 <Route path="signup/" element={<Signup></Signup>}></Route>
                 <Route path="login/" element={<Login></Login>}></Route>
-                <Route path="home/" element={<Home></Home>}>
-                    <Route path="" element={<p>Home Page</p>}></Route>
-                    <Route
-                        path="ownedTeams"
-                        element={<p>Owned Teams</p>}
-                    ></Route>
-                    <Route
-                        path="workingTeams"
-                        element={<p>Working Teams</p>}
-                    ></Route>
-                </Route>
+                <Route path="user/:token/" element={<Home></Home>}></Route>
                 <Route path="*" element={<Intro></Intro>}></Route>
             </Routes>
         </Router>
