@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
+    const baseUrl = "https://quack-quack-api.herokuapp.com";
+
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +24,7 @@ const Signup = () => {
         };
 
         axios
-            .post("http://localhost:8000/api/auth/register", payload)
+            .post(`${baseUrl}/api/auth/login`, payload)
             .then((res) => {
                 loginUser();
             })

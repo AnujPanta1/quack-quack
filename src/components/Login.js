@@ -7,9 +7,10 @@ import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
+    const baseUrl = "https://quack-quack-api.herokuapp.com";
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const [authFail, setAuthFail] = useState(false);
 
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Login = () => {
         };
 
         axios
-            .post("http://localhost:8000/api/auth/login", payload)
+            .post(`${baseUrl}/api/auth/login`, payload)
             .then((res) => {
                 navigate(`/user/${res.headers["auth-token"]}`);
             })
